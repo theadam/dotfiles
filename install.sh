@@ -14,13 +14,8 @@ command_exists() {
   type "$1" &>/dev/null
 }
 
-install_plug_nvim() {
-  curl -fLo ~/.config/nvim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-}
-
 install_nvim_folder() {
   mkdir -p ~/.config/nvim/autoload
-  install_plug_nvim
   ln -sf $current_path/neovim/custom-snippets ~/.config/nvim/custom-snippets
   ln -sf $current_path/neovim/plugin ~/.config/nvim/plugin
   ln -sf $current_path/neovim/init.vim ~/.config/nvim/init.vim
