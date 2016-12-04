@@ -148,8 +148,8 @@ set nojoinspaces
 " If a file is changed outside of vim, automatically reload it without asking
 set autoread
 
-set backupdir=$HOME/.vim/backup
-set directory=$HOME/.vim/tmp
+set backupdir=$HOME/.config/nvim/backup
+set directory=$HOME/.config/nvim/tmp
 
 " Map leader to space
 let mapleader = "\<Space>"
@@ -161,7 +161,7 @@ noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 " Undo folder. undo changes after closing and opening files
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set undofile
-set undodir=~/.vim/undodir
+set undodir=~/.config/nvim/undodir
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE

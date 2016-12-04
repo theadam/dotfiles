@@ -53,3 +53,21 @@ elif $REPLACE_FILES; then
 else
   echo "    Keeping existing tmux.conf!"
 fi
+
+#-----------------------------------------------------
+# Install karabiner-elements config
+#-----------------------------------------------------
+echo -n "[ karabiner.json ]"
+
+mkdir -p ~/.karabiner.d/configuration/
+
+if [ ! -f ~/.karabiner.d/configuration/karabiner.json ]; then
+  echo "    Creating karabiner.conf!"
+  ln -sf $current_path/karabiner-elements/karabiner.json ~/.karabiner.d/configuration/karabiner.json
+elif $REPLACE_FILES; then
+  echo "    Deleting old karabiner.conf!"
+  rm ~/.karabiner.d/configuration/karabiner.json
+  ln -sf $current_path/karabiner-elements/karabiner.json ~/.karabiner.d/configuration/karabiner.json
+else
+  echo "    Keeping existing karabiner.conf!"
+fi
