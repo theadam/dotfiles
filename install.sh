@@ -22,6 +22,38 @@ install_nvim_folder() {
 }
 
 #-----------------------------------------------------
+# Install git config
+#-----------------------------------------------------
+echo -n "[ .gitconfig ]"
+
+if [ ! -f ~/.gitconfig ]; then
+  echo "    Creating .gitconfig!"
+  ln -sf $current_path/.gitconfig ~/.gitconfig
+elif $REPLACE_FILES; then
+  echo "    Deleting old .gitconfig!"
+  rm ~/.gitconfig
+  ln -sf $current_path/.gitconfig ~/.gitconfig
+else
+  echo "    Keeping existing .gitconfig!"
+fi
+
+#-----------------------------------------------------
+# Install bash_profile
+#-----------------------------------------------------
+echo -n "[ .bash_profile ]"
+
+if [ ! -f ~/.bash_profile ]; then
+  echo "    Creating .bash_profile!"
+  ln -sf $current_path/.bash_profile ~/.bash_profile
+elif $REPLACE_FILES; then
+  echo "    Deleting old .bash_profile!"
+  rm ~/.bash_profile
+  ln -sf $current_path/.bash_profile ~/.bash_profile
+else
+  echo "    Keeping existing .bash_profile!"
+fi
+
+#-----------------------------------------------------
 # Install nvim config
 #-----------------------------------------------------
 echo -n "[ Neovim config ]"
