@@ -26,6 +26,11 @@ install_nvim_folder() {
 }
 
 #-----------------------------------------------------
+# Install programs
+#-----------------------------------------------------
+source install/install.sh
+
+#-----------------------------------------------------
 # Install git config
 #-----------------------------------------------------
 echo -n "[ .gitconfig ]"
@@ -108,3 +113,4 @@ elif $REPLACE_FILES; then
 else
   echo "    Keeping existing karabiner.conf!"
 fi
+

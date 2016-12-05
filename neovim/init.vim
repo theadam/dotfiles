@@ -203,9 +203,6 @@ autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,scss,cucumber set ai 
 " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 autocmd FileType python set sw=4 sts=4 et
 
-" JSON highlighting
-autocmd BufNewFile,BufRead *.json,*.template set ft=javascript
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NEOVIM SETTINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
