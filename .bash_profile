@@ -19,5 +19,7 @@ fi
 
 alias vim='nvim'
 alias ls='ls -G'
+alias psql='docker exec -it postgres psql -U postgres'
+alias redis-cli='docker exec -it redis redis-cli'
 
 export EDITOR=vim
