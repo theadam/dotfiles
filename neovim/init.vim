@@ -25,7 +25,6 @@ Plug 'justinmk/vim-dirvish'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-rails'
-Plug 'cakebaker/scss-syntax.vim'
 Plug 'tpope/vim-haml'
 
 " JS
@@ -153,9 +152,6 @@ set directory=$HOME/.config/nvim/tmp
 
 " Map leader to space
 let mapleader = "\<Space>"
-
-" Preserve indentation while pasting text from the OS X clipboard
-noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Undo folder. undo changes after closing and opening files
