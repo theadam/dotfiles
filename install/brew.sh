@@ -12,7 +12,8 @@ pip3 install neovim
 
 mkdir -p ~/.nvm
 export NVM_DIR="$HOME/.nvm"
-source /usr/local/opt/nvm/nvm.sh
+ln -sf /usr/local/opt/nvm/nvm.sh $NVM_DIR/nvm.sh
+source $NVM_DIR/nvm.sh
 
 eval "$(rbenv init -)"
 

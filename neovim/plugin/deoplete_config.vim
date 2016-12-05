@@ -7,22 +7,21 @@ let g:deoplete#file#enable_buffer_path=1
 
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "custom-snippets"]
 
+let javascript_source = ['buffer', 'file', 'ultisnips', 'flow']
+
 let g:deoplete#sources = {}
 let g:deoplete#sources._    = ['buffer', 'file', 'ultisnips']
+let g:deoplete#sources.javascript = javascript_source
+let g:deoplete#sources.jsx = javascript_source
+let g:deoplete#sources['javascript.jsx'] = javascript_source
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
 
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
 " For snippet_complete marker.
 " if has('conceal')
 "   set conceallevel=2 concealcursor=i
 " endif
-
-" SuperTab like snippets behavior.
-imap <expr><tab>
- \ pumvisible() ? "\<c-n>" :
- \ neosnippet#expandable_or_jumpable() ?
- \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"

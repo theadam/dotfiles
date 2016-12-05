@@ -32,7 +32,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'leafgarland/typescript-vim'
 Plug 'sheerun/vim-json'
-Plug 'carlitux/deoplete-ternjs'
 Plug 'steelsojka/deoplete-flow'
 
 " HTML CSS
