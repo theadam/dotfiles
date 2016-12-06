@@ -14,7 +14,10 @@ export NVM_DIR="$HOME/.nvm"
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
   GIT_PS1_SHOWDIRTYSTATE=true
-  export PS1='\h:\W \u\[\e[0;32m\]$(__git_ps1)\[\e[m\]\$ '
+  GIT_PS1_SHOWCOLORHINTS=true
+  GIT_PS1_SHOWSTASHSTATE=true
+  GIT_PS1_SHOWUNTRACKEDFILES=true
+  export PROMPT_COMMAND='__git_ps1 "\h:\W \u" "\\\$ "'
 fi
 
 alias vim='nvim'
