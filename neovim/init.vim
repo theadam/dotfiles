@@ -20,6 +20,7 @@ Plug 'SirVer/ultisnips'
 Plug 'Shougo/deoplete.nvim'
 Plug 'benekastah/neomake', { 'on': ['Neomake'] }
 Plug 'justinmk/vim-dirvish'
+Plug 'tpope/vim-eunuch'
 
 " ruby
 Plug 'vim-ruby/vim-ruby'
@@ -29,6 +30,7 @@ Plug 'tpope/vim-haml'
 
 " JS
 Plug 'pangloss/vim-javascript'
+Plug 'moll/vim-node'
 Plug 'mxw/vim-jsx'
 Plug 'leafgarland/typescript-vim'
 Plug 'sheerun/vim-json'
@@ -107,6 +109,9 @@ set backspace=indent,eol,start
 
 " display incomplete commands
 set showcmd
+
+" Live substitute
+set inccommand=split
 
 " Enable highlighting for syntax
 syntax on
