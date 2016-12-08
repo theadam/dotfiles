@@ -28,7 +28,7 @@ install_nvim_folder() {
 #-----------------------------------------------------
 # Install programs
 #-----------------------------------------------------
-source install/install.sh
+# source install/install.sh
 
 #-----------------------------------------------------
 # Install git config
@@ -69,7 +69,7 @@ echo -n "[ Neovim config ]"
 
 if [ ! -d ~/.config/nvim ]; then
   echo "    Creating nvim folder!"
-  mkdir ~/.config/nvim
+  mkdir -p ~/.config/nvim
   install_nvim_folder
 elif $REPLACE_FILES; then
   echo "    Deleting old nvim folder!"
