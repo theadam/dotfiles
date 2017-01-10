@@ -4,23 +4,17 @@
 snippet comp "React component" b
 import React, { Component, PropTypes } from 'react';
 
-class $1 extends Component {
-	constructor(props) {
-		super(props);$2
-	}
+export default class $1 extends Component {
+  static propTypes = {
 
-	render() {
-		return (
-			${3:<div>Hello World</div>}
-		);
-	}
+  }
+
+  render() {
+    return (
+      ${3:<div>Hello World</div>}
+    );
+  }
 }
-
-$1.propTypes = {};
-$1.defaultProps = {};
-$1.contextTypes = {};
-
-export default $1;
 endsnippet
 
 snippet fcomp "React stateless, functional component" b
