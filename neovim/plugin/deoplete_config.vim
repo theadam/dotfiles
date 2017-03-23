@@ -8,12 +8,22 @@ let g:deoplete#file#enable_buffer_path=1
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "custom-snippets"]
 
 let javascript_source = ['buffer', 'file', 'ultisnips', 'flow']
+let purescript_source = ['omni', 'buffer', 'file']
 
 let g:deoplete#sources = {}
 let g:deoplete#sources._    = ['buffer', 'file', 'ultisnips']
 let g:deoplete#sources.javascript = javascript_source
 let g:deoplete#sources.jsx = javascript_source
 let g:deoplete#sources['javascript.jsx'] = javascript_source
+let g:deoplete#sources.purescript = purescript_source
+
+let g:deoplete#omni#input_patterns = {}
+let g:deoplete#omni#input_patterns.purescript = '\w+'
+
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.purescript = [
+  \ 'PSCIDEomni'
+\]
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"

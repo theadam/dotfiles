@@ -19,8 +19,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'SirVer/ultisnips'
 Plug 'Shougo/deoplete.nvim'
 Plug 'benekastah/neomake', { 'on': ['Neomake'] }
+" Plug 'vim-syntastic/syntastic'
 Plug 'justinmk/vim-dirvish'
 Plug 'tpope/vim-eunuch'
+Plug 'terryma/vim-multiple-cursors'
 
 " ruby
 Plug 'vim-ruby/vim-ruby'
@@ -41,6 +43,10 @@ Plug 'othree/html5.vim'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'lilydjwg/colorizer', { 'for': ['css', 'sass', 'scss', 'less', 'html', 'xdefaults', 'javascript', 'javascript.jsx'] }
 
+" Purescript
+Plug 'raichoo/purescript-vim'
+Plug 'FrigoEU/psc-ide-vim'
+
 " Other Languages
 Plug 'elixir-lang/vim-elixir'
 Plug 'ElmCast/elm-vim'
@@ -49,9 +55,11 @@ Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-git'
 Plug 'keith/tmux.vim'
 Plug 'honza/dockerfile.vim'
+Plug 'JamshedVesuna/vim-markdown-preview'
 
 call plug#end()
 
+let g:psc_ide_log_level = 3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -74,9 +82,9 @@ set hidden
 " remember more commands and search history
 set history=10000
 set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set autoindent
 set laststatus=2
 set incsearch
@@ -151,6 +159,8 @@ set nojoinspaces
 " If a file is changed outside of vim, automatically reload it without asking
 set autoread
 
+set noswapfile
+
 set backupdir=$HOME/.config/nvim/backup
 set directory=$HOME/.config/nvim/tmp
 
@@ -185,6 +195,11 @@ nnoremap <C-L> :nohlsearch<CR><C-L>
 
 " Show invisible characters
 nmap <leader>i :set list!<CR>
+
+nnoremap <leader>a <c-a>
+nnoremap <leader>x <c-x>
+vnoremap <leader>a <c-a>
+vnoremap <leader>x <c-x>
 
 " Use the same symbols as TextMate for tabstops and EOLs
 if &encoding == 'utf-8'

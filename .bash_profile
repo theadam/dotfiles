@@ -26,3 +26,8 @@ alias psql='docker exec -it postgres psql -U postgres'
 alias redis-cli='docker exec -it redis redis-cli'
 
 export EDITOR=nvim
+
+export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh

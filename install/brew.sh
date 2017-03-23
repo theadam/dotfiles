@@ -10,6 +10,9 @@ brew cask install flux bettertouchtool docker slack licecap iterm2 google-chrome
 brew install neovim/neovim/neovim
 pip3 install neovim
 
+brew install python
+pip install pip-tools virtualenv virtualenvwrapper
+
 mkdir -p ~/.nvm
 export NVM_DIR="$HOME/.nvm"
 ln -sf /usr/local/opt/nvm/nvm.sh $NVM_DIR/nvm.sh

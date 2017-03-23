@@ -18,5 +18,7 @@ command! -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 
 nnoremap \ :Ag<SPACE>
 
+nnoremap <leader>p :CtrlPBuffer<cr>
+
 " Show hidden files
 let g:ctrlp_show_hidden = 1
