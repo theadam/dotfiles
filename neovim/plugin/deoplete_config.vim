@@ -17,6 +17,11 @@ let g:deoplete#sources.jsx = javascript_source
 let g:deoplete#sources['javascript.jsx'] = javascript_source
 let g:deoplete#sources.purescript = purescript_source
 
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.reason = '[^. *\t]\.\w*\|\h\w*|#'
+let g:deoplete#sources = {}
+let g:deoplete#sources.reason = ['omni', 'buffer']
+
 let g:deoplete#omni#input_patterns = {}
 let g:deoplete#omni#input_patterns.purescript = '\w+'
 

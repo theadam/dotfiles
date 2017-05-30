@@ -18,7 +18,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'SirVer/ultisnips'
 Plug 'Shougo/deoplete.nvim'
-Plug 'benekastah/neomake', { 'on': ['Neomake'] }
+" Plug 'benekastah/neomake', { 'on': ['Neomake'] }
+Plug 'w0rp/ale'
 " Plug 'vim-syntastic/syntastic'
 Plug 'justinmk/vim-dirvish'
 Plug 'tpope/vim-eunuch'
@@ -43,9 +44,13 @@ Plug 'othree/html5.vim'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'lilydjwg/colorizer', { 'for': ['css', 'sass', 'scss', 'less', 'html', 'xdefaults', 'javascript', 'javascript.jsx'] }
 
+" OCAML / REASON
+Plug 'reasonml/vim-reason'
+
 " Purescript
 Plug 'raichoo/purescript-vim'
-Plug 'FrigoEU/psc-ide-vim'
+" Plug 'FrigoEU/psc-ide-vim'
+Plug 'coot/psc-ide-vim', { 'branch': 'sync-purescript-0.11' }
 
 " Other Languages
 Plug 'elixir-lang/vim-elixir'
@@ -59,7 +64,6 @@ Plug 'JamshedVesuna/vim-markdown-preview'
 
 call plug#end()
 
-let g:psc_ide_log_level = 3
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -176,7 +180,7 @@ set undodir=~/.config/nvim/undodir
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set statusline=[%02n]\ %f\ %(\[%M%R%H]%)%=\ %4l,%02c%2V\ %P%*
+set statusline=[%02n]\ %f\ %(\[%M%R%H]%)%=\ %{ALEGetStatusLine()}\ %4l,%02c%2V\ %P%*
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MISC KEY MAPS
