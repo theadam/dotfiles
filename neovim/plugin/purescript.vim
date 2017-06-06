@@ -12,9 +12,10 @@ function! HandleLintPurs(buffer, lines)
     let l:output = []
 
     let l:results = PSCIDErebuild(1)
-    let l:pattern = '^\([^:]\):[^:]\+:\(\d\+\):\(\d\+\):\(.*\)\?$'
+    let l:pattern = '^\([^:]\):[^:]*:\(\d\+\):\(\d\+\):\(.*\)\?$'
 
     for l:result in l:results
+        echo l:result
         let l:match = matchlist(l:result, l:pattern)
         let l:type = toupper(l:match[1])
 
