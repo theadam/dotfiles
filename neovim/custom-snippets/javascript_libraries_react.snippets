@@ -2,7 +2,8 @@
 # Components declarations
 # ===============================================
 snippet comp "React component" b
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class $1 extends Component {
   static propTypes = {
@@ -18,19 +19,16 @@ export default class $1 extends Component {
 endsnippet
 
 snippet fcomp "React stateless, functional component" b
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-function ${1:Component}(props) {
+export default function ${1:Component}(props) {
 	return (
 		${2:<div>Hello</div>}
 	);
 }
 
 $1.propTypes = {};
-$1.defaultProps = {};
-$1.contextTypes = {};
-
-export default $1;
 endsnippet
 
 # ===============================================
@@ -147,4 +145,16 @@ snippet cx "classnames (cx) definition"
 const ${1:table}Classes = classnames({
 	'${2:class}': ${3:condition}
 });
+endsnippet
+
+snippet story "React storybook story"
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import ${1:Component} from '../$1';
+
+storiesOf('$1', module)
+  .add('Renders', () =>
+    <$1 />
+  );
 endsnippet

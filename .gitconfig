@@ -3,6 +3,9 @@
 	email = theadam4257@gmail.com
 [alias]
 	co = checkout
+	br = branch
 	st = status
 [push]
 	default = current
+[core]
+	excludesfile = /Users/theadam/.gitignore_global

@@ -1,4 +1,5 @@
 autocmd!
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug
@@ -11,19 +12,30 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'vimwiki/vimwiki'
+
+Plug 'editorconfig/editorconfig-vim'
 Plug 'freeo/vim-kalisi'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'morhetz/gruvbox'
+Plug 'romainl/Apprentice'
+
+" Plug 'ctrlpvim/ctrlp.vim'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'SirVer/ultisnips'
-Plug 'Shougo/deoplete.nvim'
-" Plug 'benekastah/neomake', { 'on': ['Neomake'] }
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'maralla/completor.vim'
+endif
+
 Plug 'w0rp/ale'
-" Plug 'vim-syntastic/syntastic'
 Plug 'justinmk/vim-dirvish'
 Plug 'tpope/vim-eunuch'
-Plug 'terryma/vim-multiple-cursors'
 
 " ruby
 Plug 'vim-ruby/vim-ruby'
@@ -37,7 +49,8 @@ Plug 'moll/vim-node'
 Plug 'mxw/vim-jsx'
 Plug 'leafgarland/typescript-vim'
 Plug 'sheerun/vim-json'
-Plug 'steelsojka/deoplete-flow'
+Plug 'mvolkmann/vim-react'
+Plug 'flowtype/vim-flow'
 
 " HTML CSS
 Plug 'othree/html5.vim'
@@ -122,8 +135,10 @@ set backspace=indent,eol,start
 " display incomplete commands
 set showcmd
 
-" Live substitute
-set inccommand=split
+if has('nvim')
+  " Live substitute
+  set inccommand=split
+endif
 
 " Enable highlighting for syntax
 syntax on
@@ -217,7 +232,7 @@ command! -nargs=0 Jqfile %!jq '.'
 " CUSTOM AUTOCMDS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " for ruby, autoindent with two spaces, always expand tabs
-autocmd FileType ruby,haml,eruby,yaml,html,javascript,sass,scss,cucumber set ai sw=2 sts=2 et
+autocmd FileType ruby,haml,eruby,yaml,html,javascript,javascript.jsx,sass,scss,cucumber set ai sw=2 sts=2 et
 
 " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 autocmd FileType python set sw=4 sts=4 et
@@ -229,3 +244,12 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1         " Set an environment variable to use
 let loaded_netrwPlugin = 1
 command! Explore :Dirvish %:p:h
 
+set cul
+
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
