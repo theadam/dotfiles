@@ -1,0 +1,23 @@
+# rbenv setup
+eval "$(rbenv init -)"
+
+# add custom bin
+export PATH=~/bin:$PATH
+# add node_modules/.bin
+export PATH=./node_modules/.bin:$PATH
+
+# Setup nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+alias mux='tmuxinator'
+alias ls='ls -G'
+alias psql='docker exec -it postgres psql -U postgres'
+alias redis-cli='docker exec -it redis redis-cli'
+alias vim='nvim'
+
+export EDITOR=nvim
+export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+export WORKON_HOME=$HOME/.virtualenvs
+export KEYTIMEOUT=1
+

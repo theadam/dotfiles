@@ -12,6 +12,11 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 
+if has('nvim')
+  Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Shougo/echodoc.vim'
+endif
+
 Plug 'vimwiki/vimwiki'
 
 Plug 'editorconfig/editorconfig-vim'
@@ -58,7 +63,9 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'lilydjwg/colorizer', { 'for': ['css', 'sass', 'scss', 'less', 'html', 'xdefaults', 'javascript', 'javascript.jsx'] }
 
 " OCAML / REASON
-Plug 'reasonml/vim-reason'
+if has('nvim')
+  Plug 'reasonml-editor/vim-reason-plus'
+endif
 
 " Purescript
 Plug 'raichoo/purescript-vim'
@@ -156,7 +163,7 @@ set wildmode=longest,list,full
 set wildmenu
 
 " Fix slow O inserts
-set timeout timeoutlen=1000 ttimeoutlen=100
+set timeout timeoutlen=1000 ttimeoutlen=0
 
 " Normally, Vim messes with iskeyword when you open a shell file. This can
 " leak out, polluting other file types even after a 'set ft=' change. This
@@ -253,3 +260,5 @@ else
   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
+
+" set termguicolors

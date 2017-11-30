@@ -14,3 +14,5 @@ let g:ale_fixers.javascript = [
 \]
 
 nmap <leader>f :ALEFix<CR>
+
+autocmd FileType ruby let b:ale_open_list = 0
