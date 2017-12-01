@@ -13,8 +13,8 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 
 if has('nvim')
-  Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'Shougo/echodoc.vim'
+"  Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+"  Plug 'Shougo/echodoc.vim'
 endif
 
 Plug 'vimwiki/vimwiki'
@@ -64,7 +64,7 @@ Plug 'lilydjwg/colorizer', { 'for': ['css', 'sass', 'scss', 'less', 'html', 'xde
 
 " OCAML / REASON
 if has('nvim')
-  Plug 'reasonml-editor/vim-reason-plus'
+  Plug 'reasonml-editor/vim-reason'
 endif
 
 " Purescript
