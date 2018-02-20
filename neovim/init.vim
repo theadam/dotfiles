@@ -13,8 +13,11 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 
 if has('nvim')
-"  Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
-"  Plug 'Shougo/echodoc.vim'
+  " Plug 'autozimu/LanguageClient-neovim', {
+  "   \ 'branch': 'next',
+  "   \ 'do': 'bash install.sh',
+  "   \ }
+  Plug 'roxma/python-support.nvim'
 endif
 
 Plug 'vimwiki/vimwiki'
@@ -33,7 +36,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'SirVer/ultisnips'
 
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'roxma/nvim-completion-manager'
+  Plug 'roxma/ncm-flow'
 else
   Plug 'maralla/completor.vim'
 endif
@@ -56,15 +61,18 @@ Plug 'leafgarland/typescript-vim'
 Plug 'sheerun/vim-json'
 Plug 'mvolkmann/vim-react'
 Plug 'flowtype/vim-flow'
+Plug 'styled-components/vim-styled-components'
 
 " HTML CSS
 Plug 'othree/html5.vim'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'lilydjwg/colorizer', { 'for': ['css', 'sass', 'scss', 'less', 'html', 'xdefaults', 'javascript', 'javascript.jsx'] }
+Plug 'hail2u/vim-css3-syntax'
 
 " OCAML / REASON
 if has('nvim')
   Plug 'reasonml-editor/vim-reason'
+  " Plug 'reasonml-editor/vim-reason-plus'
 endif
 
 " Purescript
