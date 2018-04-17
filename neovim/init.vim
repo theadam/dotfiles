@@ -1,6 +1,10 @@
 autocmd!
 let g:python3_host_prog = '/usr/local/bin/python3'
 
+if has('nvim') || has('termguicolors')
+  set termguicolors
+endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-plug
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -21,11 +25,20 @@ if has('nvim')
 endif
 
 Plug 'vimwiki/vimwiki'
+Plug 'tpope/vim-abolish'
+Plug 'mhinz/vim-grepper'
 
 Plug 'editorconfig/editorconfig-vim'
 Plug 'freeo/vim-kalisi'
+Plug 'sjl/badwolf'
 Plug 'morhetz/gruvbox'
 Plug 'romainl/Apprentice'
+Plug 'arcticicestudio/nord-vim'
+Plug 'blueshirts/darcula'
+Plug 'trevordmiller/nova-vim'
+Plug 'challenger-deep-theme/vim'
+Plug 'joshdick/onedark.vim'
+Plug 'tyrannicaltoucan/vim-quantum'
 
 " Plug 'ctrlpvim/ctrlp.vim'
 Plug '/usr/local/opt/fzf'
@@ -62,11 +75,12 @@ Plug 'sheerun/vim-json'
 Plug 'mvolkmann/vim-react'
 Plug 'flowtype/vim-flow'
 Plug 'styled-components/vim-styled-components'
+" Plug 'theadam/vim-enhanced-resolver', { 'do': 'npm install' }
 
 " HTML CSS
 Plug 'othree/html5.vim'
 Plug 'cakebaker/scss-syntax.vim'
-Plug 'lilydjwg/colorizer', { 'for': ['css', 'sass', 'scss', 'less', 'html', 'xdefaults', 'javascript', 'javascript.jsx'] }
+Plug 'lilydjwg/colorizer', { 'for': ['css', 'sass', 'scss', 'less', 'html', 'xdefaults', 'javascript', 'javascript.jsx', 'conf'] }
 Plug 'hail2u/vim-css3-syntax'
 
 " OCAML / REASON
@@ -95,11 +109,8 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Color
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme kalisi
+colorscheme quantum
 set background=dark
-
-" Set 256 colors
-set t_Co=256
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
@@ -133,10 +144,6 @@ set cmdheight=1
 set switchbuf=useopen
 set showtabline=1
 set winwidth=79
-
-" Prevent Vim from clobbering the scrollback buffer. See
-" http://www.shallowsky.com/linux/noaltscreen.html
-set t_ti= t_te=
 
 " keep more context when scrolling off the end of a buffer
 set scrolloff=3
@@ -261,12 +268,3 @@ command! Explore :Dirvish %:p:h
 
 set cul
 
-if exists('$TMUX')
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-else
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-endif
-
-" set termguicolors
