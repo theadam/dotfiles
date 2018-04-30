@@ -114,3 +114,18 @@ else
   echo "    Keeping existing karabiner.conf!"
 fi
 
+#-----------------------------------------------------
+# Install kitty config
+#-----------------------------------------------------
+echo -n "[ Kitty Config ]"
+
+if [ ! -f ~/Library/Preferences/kitty/kitty.conf ]; then
+  echo "    Creating kitty config!"
+  ln -sf $current_path/kitty.conf ~/Library/Preferences/kitty/kitty.conf
+elif $REPLACE_FILES; then
+  echo "    Deleting old kitty config!"
+  rm ~/Library/Preferences/kitty/kitty.conf
+  ln -sf $current_path/kitty.conf ~/Library/Preferences/kitty/kitty.conf
+else
+  echo "    Keeping existing kitty config!"
+fi
