@@ -1,5 +1,4 @@
 autocmd!
-let g:python3_host_prog = '/usr/local/bin/python3'
 
 if has('nvim') || has('termguicolors')
   set termguicolors
@@ -16,31 +15,17 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 
-if has('nvim')
-  " Plug 'autozimu/LanguageClient-neovim', {
-  "   \ 'branch': 'next',
-  "   \ 'do': 'bash install.sh',
-  "   \ }
-  Plug 'roxma/python-support.nvim'
-endif
+Plug 'w0rp/ale'
+Plug 'prabirshrestha/async.vim'   " vim8/neovim async normalizer
+Plug 'prabirshrestha/vim-lsp'     " Language Server Protocol support
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
-Plug 'vimwiki/vimwiki'
-Plug 'tpope/vim-abolish'
-Plug 'mhinz/vim-grepper'
-
-Plug 'editorconfig/editorconfig-vim'
-Plug 'freeo/vim-kalisi'
-Plug 'sjl/badwolf'
-Plug 'morhetz/gruvbox'
-Plug 'romainl/Apprentice'
-Plug 'arcticicestudio/nord-vim'
-Plug 'blueshirts/darcula'
-Plug 'trevordmiller/nova-vim'
-Plug 'challenger-deep-theme/vim'
-Plug 'joshdick/onedark.vim'
+" Color scheme
 Plug 'tyrannicaltoucan/vim-quantum'
 
-" Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-abolish'
+Plug 'editorconfig/editorconfig-vim'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-repeat'
@@ -48,34 +33,24 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'SirVer/ultisnips'
 
-if has('nvim')
-  " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'roxma/nvim-completion-manager'
-  Plug 'roxma/ncm-flow'
-else
-  Plug 'maralla/completor.vim'
-endif
-
-Plug 'w0rp/ale'
 Plug 'justinmk/vim-dirvish'
-Plug 'tpope/vim-eunuch'
 
 " ruby
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-rails'
-Plug 'tpope/vim-haml'
 
 " JS
 Plug 'pangloss/vim-javascript'
 Plug 'moll/vim-node'
 Plug 'mxw/vim-jsx'
-Plug 'leafgarland/typescript-vim'
 Plug 'sheerun/vim-json'
 Plug 'mvolkmann/vim-react'
-Plug 'flowtype/vim-flow'
 Plug 'styled-components/vim-styled-components'
-" Plug 'theadam/vim-enhanced-resolver', { 'do': 'npm install' }
+
+" rust
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
 
 " HTML CSS
 Plug 'othree/html5.vim'
@@ -83,26 +58,12 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'lilydjwg/colorizer', { 'for': ['css', 'sass', 'scss', 'less', 'html', 'xdefaults', 'javascript', 'javascript.jsx', 'conf'] }
 Plug 'hail2u/vim-css3-syntax'
 
-" OCAML / REASON
-if has('nvim')
-  Plug 'reasonml-editor/vim-reason'
-  " Plug 'reasonml-editor/vim-reason-plus'
-endif
-
-" Purescript
-Plug 'raichoo/purescript-vim'
-" Plug 'FrigoEU/psc-ide-vim'
-Plug 'coot/psc-ide-vim', { 'branch': 'sync-purescript-0.11' }
-
 " Other Languages
-Plug 'elixir-lang/vim-elixir'
-Plug 'ElmCast/elm-vim'
 Plug 'martin-svk/vim-yaml'
 Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-git'
 Plug 'keith/tmux.vim'
 Plug 'honza/dockerfile.vim'
-Plug 'JamshedVesuna/vim-markdown-preview'
 
 call plug#end()
 
@@ -115,6 +76,7 @@ set background=dark
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC EDITING CONFIGURATION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Turn on lin numbers
 set number
 set nocompatible
 
@@ -156,11 +118,6 @@ set backspace=indent,eol,start
 
 " display incomplete commands
 set showcmd
-
-if has('nvim')
-  " Live substitute
-  set inccommand=split
-endif
 
 " Enable highlighting for syntax
 syntax on
@@ -217,7 +174,7 @@ set undodir=~/.config/nvim/undodir
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set statusline=[%02n]\ %f\ %(\[%M%R%H]%)%=\ %{ALEGetStatusLine()}\ %4l,%02c%2V\ %P%*
+set statusline=[%02n]\ %f\ %(\[%M%R%H]%)%=\ %4l,%02c%2V\ %P%*
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MISC KEY MAPS
@@ -237,6 +194,7 @@ nnoremap <C-L> :nohlsearch<CR><C-L>
 " Show invisible characters
 nmap <leader>i :set list!<CR>
 
+" Remap number increment and decrement
 nnoremap <leader>a <c-a>
 nnoremap <leader>x <c-x>
 vnoremap <leader>a <c-a>
@@ -249,6 +207,10 @@ endif
 
 " Pretty print a json file
 command! -nargs=0 Jqfile %!jq '.'
+
+" Replace netrw with Dirvish
+let loaded_netrwPlugin = 1
+command! Explore :Dirvish %:p:h
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CUSTOM AUTOCMDS
@@ -263,8 +225,12 @@ autocmd FileType python set sw=4 sts=4 et
 " NEOVIM SETTINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1         " Set an environment variable to use the t_SI/t_EI hack
-let loaded_netrwPlugin = 1
-command! Explore :Dirvish %:p:h
 
+if has('nvim')
+  " Live substitute
+  set inccommand=split
+endif
+
+
+" Highlight the cursor line
 set cul
-

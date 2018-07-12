@@ -58,7 +58,7 @@ DISABLE_AUTO_TITLE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmuxinator npm docker django virtualenvwrapper)
+plugins=(git tmuxinator npm docker django)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -86,34 +86,6 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Call virtualenvwrapper's "workon" if .venv exists.
-# Source: https://gist.github.com/clneagu/7990272
-# This is modified from--
-# https://gist.github.com/cjerdonek/7583644, modified from
-# http://justinlilly.com/python/virtualenv_wrapper_helper.html, linked from
-# http://virtualenvwrapper.readthedocs.org/en/latest/tips.html
-#automatically-run-workon-when-entering-a-directory
-check_virtualenv() {
-  if [ -e .venv ]; then
-    env=`cat .venv`
-    if [ "$env" != "${VIRTUAL_ENV##*/}" ]; then
-      echo "Found .venv in directory. Calling: workon ${env}"
-      workon $env
-    fi
-  fi
-}
-venv_cd () {
-  builtin cd "$@" && check_virtualenv
-}
-# Call check_virtualenv in case opening directly into a directory (e.g
-# when opening a new tab in Terminal.app).
-check_virtualenv
-alias cd="venv_cd"
 
 
 # fzf via Homebrew
@@ -139,3 +111,4 @@ if _has fzf && _has ag; then
   --color info:108,prompt:109,spinner:108,pointer:168,marker:168
   '
 fi
+

@@ -5,10 +5,12 @@ eval "$(rbenv init -)"
 export PATH=~/bin:$PATH
 # add node_modules/.bin
 export PATH=./node_modules/.bin:$PATH
+# add rust stuff to PATH
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Setup nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+. $(brew --prefix nvm)/nvm.sh
 
 alias mux='tmuxinator'
 alias ls='ls -G'
@@ -21,3 +23,4 @@ export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 export WORKON_HOME=$HOME/.virtualenvs
 export KEYTIMEOUT=1
 
+eval "$(pyenv init -)"
