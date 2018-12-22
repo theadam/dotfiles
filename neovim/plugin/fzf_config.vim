@@ -1,3 +1,5 @@
+tnoremap <expr> <esc> &filetype == 'fzf' ? "\<esc>" : "\<c-\>\<c-n>"
+
 nmap <Leader>p :Buffers<CR>
 nmap <c-p> :Files<CR>
 
@@ -27,5 +29,5 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 autocmd! FileType fzf
-autocmd  FileType fzf set laststatus=0 noshowmode noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+autocmd  FileType fzf set laststatus=0
+  \| autocmd BufLeave <buffer> set laststatus=2

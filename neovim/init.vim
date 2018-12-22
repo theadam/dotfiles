@@ -1,5 +1,8 @@
 autocmd!
 
+let g:python_host_prog = $HOME . "/.pyenv/versions/neovim2/bin/python"
+let g:python3_host_prog = $HOME . "/.pyenv/versions/neovim3/bin/python"
+
 if has('nvim') || has('termguicolors')
   set termguicolors
 endif
@@ -15,11 +18,11 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'w0rp/ale'
-Plug 'prabirshrestha/async.vim'   " vim8/neovim async normalizer
-Plug 'prabirshrestha/vim-lsp'     " Language Server Protocol support
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+" Plug 'w0rp/ale'
+
+Plug 'neoclide/coc.nvim', {'do': 'yarn install'}
+Plug 'Shougo/denite.nvim'
+Plug 'itchyny/lightline.vim'
 
 " Color scheme
 Plug 'tyrannicaltoucan/vim-quantum'
@@ -42,11 +45,15 @@ Plug 'tpope/vim-rails'
 
 " JS
 Plug 'pangloss/vim-javascript'
-Plug 'moll/vim-node'
 Plug 'mxw/vim-jsx'
+Plug 'moll/vim-node'
 Plug 'sheerun/vim-json'
 Plug 'mvolkmann/vim-react'
 Plug 'styled-components/vim-styled-components'
+
+" TypeScript
+Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
 
 " rust
 Plug 'rust-lang/rust.vim'
@@ -55,7 +62,6 @@ Plug 'racer-rust/vim-racer'
 " HTML CSS
 Plug 'othree/html5.vim'
 Plug 'cakebaker/scss-syntax.vim'
-Plug 'lilydjwg/colorizer', { 'for': ['css', 'sass', 'scss', 'less', 'html', 'xdefaults', 'javascript', 'javascript.jsx', 'conf'] }
 Plug 'hail2u/vim-css3-syntax'
 
 " Other Languages
@@ -107,6 +113,9 @@ set switchbuf=useopen
 set showtabline=1
 set winwidth=79
 
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
+
 " keep more context when scrolling off the end of a buffer
 set scrolloff=3
 
@@ -134,6 +143,10 @@ set wildmode=longest,list,full
 " make tab completion for files/buffers act like bash
 set wildmenu
 
+" Enable syntax folding
+set foldmethod=manual
+set nofoldenable
+
 " Fix slow O inserts
 set timeout timeoutlen=1000 ttimeoutlen=0
 
@@ -145,10 +158,6 @@ let g:sh_noisk=1
 " Modelines (comments that set vim options on a per-file basis)
 set modeline
 set modelines=3
-
-" Turn folding off for real, hopefully
-set foldmethod=manual
-set nofoldenable
 
 " Insert only one space when joining lines that contain sentence-terminating
 " punctuation like `.`.
@@ -216,15 +225,14 @@ command! Explore :Dirvish %:p:h
 " CUSTOM AUTOCMDS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " for ruby, autoindent with two spaces, always expand tabs
-autocmd FileType ruby,haml,eruby,yaml,html,javascript,javascript.jsx,sass,scss,cucumber set ai sw=2 sts=2 et
+autocmd FileType ruby,haml,eruby,yaml,html,sass,scss,cucumber setlocal ai sw=2 sts=2 et
 
 " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
-autocmd FileType python set sw=4 sts=4 et
+autocmd FileType python setlocal sw=4 sts=4 et
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NEOVIM SETTINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1         " Set an environment variable to use the t_SI/t_EI hack
 
 if has('nvim')
   " Live substitute
@@ -234,3 +242,9 @@ endif
 
 " Highlight the cursor line
 set cul
+
+" set guicursor
+set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
+
+" Toggle wrapping
+map <leader>w :set wrap!<cr>
