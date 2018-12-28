@@ -21,7 +21,8 @@ install_nvim_folder() {
   mkdir -p ~/.config/nvim/autoload
   install_plug_nvim
   ln -sf $current_path/neovim/custom-snippets ~/.config/nvim/custom-snippets
-  ln -sf $current_path/neovim/plugin ~/.config/nvim/plugin
+  ln -sf $current_path/neovim/config ~/.config/nvim/config
+  ln -sf $current_path/neovim/coc-settings.json ~/.config/nvim/coc-settings.json
   ln -sf $current_path/neovim/init.vim ~/.config/nvim/init.vim
 }
 
@@ -128,4 +129,21 @@ elif $REPLACE_FILES; then
   ln -sf $current_path/kitty.conf ~/Library/Preferences/kitty/kitty.conf
 else
   echo "    Keeping existing kitty config!"
+fi
+
+#-----------------------------------------------------
+# Install Alacritty config
+#-----------------------------------------------------
+echo -n "[ Alacritty Config ]"
+
+if [ ! -d ~/.config/alacritty ]; then
+  echo "    Creating alacritty folder!"
+  mkdir -p ~/.config/alacritty
+  ln -sf $current_path/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+elif $REPLACE_FILES; then
+  echo "    Deleting old alacritty config!"
+  rm -rf ~/.config/alacritty
+  ln -sf $current_path/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+else
+  echo "    Keeping existing alacritty config!"
 fi
