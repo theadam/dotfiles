@@ -1,6 +1,8 @@
 " If not running in TMUX
 if !exists('$TMUX')
-  autocmd BufEnter term://* startinsert
+  augroup tabsgroup
+    autocmd BufEnter term://* startinsert
+  augroup END
 
   let s:leader = '<C-a>'
   let s:mappings = ['nnoremap', 'inoremap', 'tnoremap']

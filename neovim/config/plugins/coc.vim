@@ -1,9 +1,38 @@
+call coc#add_extension(
+            \ 'coc-tsserver',
+            \ 'coc-eslint',
+            \ 'coc-highlight',
+            \ 'coc-json',
+            \ 'coc-pyls',
+            \ 'coc-solargraph',
+            \ 'coc-ultisnips',
+            \ 'coc-html',
+            \ 'coc-css'
+            \ )
+
+" autocmds
+augroup cocgroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  autocmd CursorHoldI * silent call CocActionAsync('showSignatureHelp')
+
+  autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+  " Highlight symbol under cursor on CursorHold
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup end
+
+" Keys
+" Turn off endwise mappings to override with custom mappings
 let g:endwise_no_mappings = 1
 imap <C-X><CR>   <CR><Plug>AlwaysEnd
 imap <expr> <CR> (pumvisible() ? "\<C-Y>" : "\<CR>\<Plug>DiscretionaryEnd")
 imap <expr> <C-N> (pumvisible() ? "\<C-N>" : coc#refresh())
 imap <expr> <C-P> (pumvisible() ? "\<C-P>" : coc#refresh())
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -22,24 +51,12 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
 vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
-
-augroup cocgroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-  autocmd CursorHoldI * silent call CocActionAsync('showSignatureHelp')
-augroup end
 
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
 vmap <leader>a  <Plug>(coc-codeaction-selected)

@@ -59,4 +59,11 @@ let g:lightline = {
 	      \ 'noremap'
 	      \)
 
-autocmd User CocDiagnosticChange call lightline#update()
+augroup statuslinegroup
+  autocmd!
+  autocmd User CocDiagnosticChange call lightline#update()
+augroup END
+
+call lightline#init()
+call lightline#colorscheme()
+call lightline#update()

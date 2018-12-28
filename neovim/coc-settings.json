@@ -1,0 +1,7 @@
+{
+  "coc.preferences.diagnostic.signOffset": 1000,
+  "solargraph.useBundler": true,
+  "javascript.validate.enable" : false,
+  "pyls.plugins.pycodestyle.enabled": false,
+  "pyls.plugins.pyflakes.enabled": false
+}

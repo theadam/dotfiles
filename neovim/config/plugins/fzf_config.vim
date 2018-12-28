@@ -28,6 +28,10 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-autocmd! FileType fzf
-autocmd  FileType fzf set laststatus=0
-  \| autocmd BufLeave <buffer> set laststatus=2
+
+augroup fzfgroup
+  autocmd!
+  autocmd! FileType fzf
+  autocmd  FileType fzf set laststatus=0
+    \| autocmd BufLeave <buffer> set laststatus=2
+augroup END
