@@ -8,6 +8,10 @@ echo 'Installing python'
 pyenv install-latest 2.7
 pyenv install-latest
 
+pyenv rehash
+
+pyenv global `ls ~/.pyenv/versions/`
+
 pip install pip-tools virtualenv virtualenvwrapper python-language-server
 
 PY2_V=`pyenv version | grep ^2.7 | awk '{print $1}' | tr -d '\n\r'`
