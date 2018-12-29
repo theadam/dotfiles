@@ -1,4 +1,7 @@
 #! /bin/bash
+echo 'Starting docker'
+open /Applications/Docker.app
+
 echo 'Installing docker images'
 docker pull postgres
 docker pull redis

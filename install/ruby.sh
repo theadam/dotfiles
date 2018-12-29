@@ -1,3 +1,7 @@
+#! /bin/bash
+echo 'Setting up rbenv'
+eval "$(rbenv init -)"
+
 echo 'Installing ruby'
 rbenv install 2.3.3
 rbenv global 2.3.3
