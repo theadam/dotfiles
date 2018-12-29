@@ -1,6 +1,8 @@
 #! /bin/bash
 echo 'Setting up pyenv'
 eval "$(pyenv init -)"
+git clone https://github.com/momo-lab/pyenv-install-latest.git "$(pyenv root)"/plugins/pyenv-install-latest
+
 
 echo 'Installing python'
 pyenv install-latest 2.7
