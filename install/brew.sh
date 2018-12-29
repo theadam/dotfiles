@@ -8,5 +8,3 @@ brew install rbenv nvm bash-completion boost tmux tmuxinator-completion reattach
 
 brew cask install flux bettertouchtool docker slack licecap google-chrome dropbox alacritty karabiner-elements
 
-/usr/local/opt/fzf/install --all
-
