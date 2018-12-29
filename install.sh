@@ -3,6 +3,6 @@
 set -e
 
 source install/install.sh
+source stow.sh
 
-stow home -t $HOME
 nvim +PlugInstall +qall
