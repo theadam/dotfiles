@@ -59,11 +59,11 @@ vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-vmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+vmap <leader>ca <Plug>(coc-codeaction-selected)
+nmap <leader>ca  <Plug>(coc-codeaction-selected)
 
 " Remap for do codeAction of current line
-nmap <leader>ac  <Plug>(coc-codeaction)
+nmap <leader>cal  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
 
@@ -75,13 +75,12 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Shortcuts for denite interface
 " Show extension list
-nnoremap <silent> <leader>e  :<C-u>Denite coc-extension -winheight=7<cr>
+nnoremap <silent> <leader><s-e>  :<C-u>Denite coc-extension -winheight=7<cr>
 " Show symbols of current buffer
-nnoremap <silent> <leader>s  :<C-u>Denite coc-symbols -winheight=7<cr>
+nnoremap <silent> <leader><s-s>  :<C-u>Denite coc-symbols -winheight=7<cr>
 " Search symbols of current workspace
-nnoremap <silent> <leader><s-s>  :<C-u>Denite coc-workspace -winheight=7<cr>
+nnoremap <silent> <leader><s-w>  :<C-u>Denite coc-workspace -winheight=7<cr>
 " Show diagnostics of current workspace
-nnoremap <silent> <leader>d  :<C-u>Denite coc-diagnostic -winheight=7<cr>
-nnoremap <silent> <leader>l  :lwindow 7<CR>
+nnoremap <silent> <leader><s-d>  :<C-u>Denite coc-diagnostic -winheight=7<cr>
 " Show available commands
-nnoremap <silent> <space>c  :<C-u>Denite coc-command -winheight=7<cr>
+nnoremap <silent> <leader><s-c>  :<C-u>Denite coc-command -winheight=7<cr>

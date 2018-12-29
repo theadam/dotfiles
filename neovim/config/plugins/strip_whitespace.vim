@@ -8,10 +8,11 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 
-" Clears trailing whitespace
-map <Leader><Space> :call <SID>StripTrailingWhitespaces()<CR>
-
 augroup stripwhitespacegroup
   autocmd!
   autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 augroup END
+
+" Clears trailing whitespace
+map <Leader><Space> :call <SID>StripTrailingWhitespaces()<CR>
+

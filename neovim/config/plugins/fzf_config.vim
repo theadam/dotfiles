@@ -1,17 +1,9 @@
-tnoremap <expr> <esc> &filetype == 'fzf' ? "\<esc>" : "\<c-\>\<c-n>"
-
-nmap <Leader>p :Buffers<CR>
-nmap <c-p> :Files<CR>
-
 function! s:ag_in(...)
   let dir = fnamemodify(expand('%'), ':p:h')
   call fzf#vim#ag(join(a:000, ' '), {'dir': dir})
 endfunction
 
 command! -nargs=+ -complete=dir AgLocal call s:ag_in(<f-args>)
-
-nnoremap \ :AgLocal<SPACE>
-nnoremap <leader>\ :Ag<SPACE>
 
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
@@ -35,3 +27,10 @@ augroup fzfgroup
   autocmd  FileType fzf set laststatus=0
     \| autocmd BufLeave <buffer> set laststatus=2
 augroup END
+
+nmap <Leader>p :Buffers<CR>
+nmap <c-p> :Files<CR>
+nnoremap \ :AgLocal<SPACE>
+nnoremap <leader>\ :Ag<SPACE>
+tnoremap <expr> <esc> &filetype == 'fzf' ? "\<esc>" : "\<c-\>\<c-n>"
+

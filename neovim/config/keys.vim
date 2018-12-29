@@ -21,3 +21,6 @@ vnoremap <leader>x <c-x>
 
 " Toggle wrapping
 map <leader>w :set wrap!<cr>
+
+" show location window
+nnoremap <silent> <leader>l  :lwindow 7<CR>
