@@ -19,7 +19,7 @@ alias redis-cli='docker exec -it redis redis-cli'
 alias vim='nvim'
 
 export EDITOR=nvim
-export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+export JAVA_HOME="$(/usr/libexec/java_home -v 1.8 2> /dev/null)"
 export WORKON_HOME=$HOME/.virtualenvs
 export KEYTIMEOUT=1
 
