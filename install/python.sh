@@ -1,7 +1,10 @@
 #! /bin/bash
 echo 'Setting up pyenv'
 eval "$(pyenv init -)"
-git clone https://github.com/momo-lab/pyenv-install-latest.git "$(pyenv root)"/plugins/pyenv-install-latest
+
+if [ ! -d "$(pyenv root)"/plugins/pyenv-install-latest ]; then
+    git clone https://github.com/momo-lab/pyenv-install-latest.git "$(pyenv root)"/plugins/pyenv-install-latest
+fi
 
 
 echo 'Installing python'
