@@ -47,6 +47,8 @@ CASKS=(
     'alacritty'
     'karabiner-elements'
     'kitty'
+    '1password',
+    'insomnia'
 )
 
 for f in "${CASKS[@]}"; do

@@ -31,7 +31,7 @@ pyenv global $PY2_V $PY3_V
 
 pip install --upgrade pip
 pip3 install --upgrade pip
-pip install pip-tools virtualenv virtualenvwrapper python-language-server
+pip install pip-tools virtualenv virtualenvwrapper python-language-server pipenv
 
 echo 'Setting up neovim python environments'
 if [ -d $PYENV_ROOT/versions/neovim2 ]; then
