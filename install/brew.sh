@@ -16,7 +16,6 @@ FORMULAS=(
     'ag'
     'fzf'
     'pyenv'
-    'pipenv'
     'pyenv-virtualenv'
     'neovim'
     'stow'
