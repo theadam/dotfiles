@@ -42,7 +42,7 @@ CASKS=(
     'google-chrome'
     'karabiner-elements'
     'kitty'
-    '1password',
+    '1password'
     'insomnia'
 )
 
