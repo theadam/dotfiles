@@ -1,7 +1,6 @@
 #! /bin/bash
 echo 'Installing homebrew repos'
-brew tap caskroom/cask
-brew tap caskroom/versions
+brew tap Homebrew/cask-versions
 
 echo 'Installing necessary applications'
 FORMULAS=(
@@ -41,7 +40,6 @@ CASKS=(
     'slack'
     'licecap'
     'google-chrome'
-    'dropbox'
     'karabiner-elements'
     'kitty'
     '1password',
@@ -61,8 +59,8 @@ for f in "${CASKS[@]}"; do
     fi
 done
 
-echo 'Starting docker'
-open /Applications/Docker.app
+# echo 'Starting docker'
+# open /Applications/Docker.app
 
 if [ ! -d ~/.oh-my-zsh ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
