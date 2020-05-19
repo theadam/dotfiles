@@ -36,14 +36,12 @@ for f in "${FORMULAS[@]}"; do
 done
 
 CASKS=(
-    'flux'
     'bettertouchtool'
     'docker'
     'slack'
     'licecap'
     'google-chrome'
     'dropbox'
-    'alacritty'
     'karabiner-elements'
     'kitty'
     '1password',

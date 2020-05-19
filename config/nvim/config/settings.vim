@@ -34,7 +34,7 @@ set showtabline=1
 set winwidth=79
 
 " Smaller updatetime for CursorHold & CursorHoldI
-set updatetime=300
+set updatetime=750
 
 " keep more context when scrolling off the end of a buffer
 set scrolloff=3
@@ -122,3 +122,6 @@ if has('nvim') || has('termguicolors')
   set termguicolors
 endif
 
+set signcolumn=yes
+
+set completeopt+=noselect

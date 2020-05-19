@@ -1,7 +1,18 @@
 {
-  "coc.preferences.diagnostic.signOffset": 1000,
+  "diagnostic.refreshOnInsertMode": true,
+  "languageserver": {
+     "purescript": {
+       "command": "purescript-language-server",
+       "args": ["--stdio"],
+       "filetypes": ["purescript"]
+     }
+  },
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "javascriptreact", "purescript", "typescript", "typescriptreact"],
   "solargraph.useBundler": true,
   "javascript.validate.enable" : false,
   "pyls.plugins.pycodestyle.enabled": false,
-  "pyls.plugins.pyflakes.enabled": false
+  "pyls.plugins.pyflakes.enabled": true,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
+  "eslint.enable": false
 }

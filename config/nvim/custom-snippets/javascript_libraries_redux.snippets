@@ -117,7 +117,7 @@ endsnippet
 # ===============================================
 snippet ac "Redux action creator"
 export const ${1:actionName} = () => ({
-	type: ActionTypes.${2:ACTION_TYPE},
+	type: types.${2:ACTION_TYPE},
 	payload: $3
 });
 endsnippet
@@ -150,16 +150,22 @@ export default rootReducer;
 endsnippet
 
 snippet red "Redux reducer"
-import ActionTypes from 'constants/ActionTypes';
+import { createNamespace, createActionTypes } from 'utils/redux';
+
+const namespaced = createNamespace('analytics/${1:namespace}');
+
+export const types = createActionTypes(namespaced, [
+  '${2:ACTION_TYPE}',
+]);
 
 const initialState = {
 	data: [],
-	fetching: false
+	loading: false
 };
 
-const ${1:dataReducer} = (state = initialState, action) => {
+export default function reducer(state = initialState, action) {
 	switch (action.type) {
-		case ActionTypes.${2:ACTION_TYPE}: {
+		case types.$2: {
 			return state;
 		}
 		default: {
@@ -167,8 +173,6 @@ const ${1:dataReducer} = (state = initialState, action) => {
 		}
 	}
 };
-
-export default $1;
 endsnippet
 
 # ===============================================

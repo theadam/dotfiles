@@ -14,7 +14,7 @@ function! CocStatus()
 endfunction
 
 function! LightlineFilename()
-  let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+  let filename = expand('%:p') !=# '' ? fnamemodify(expand('%:p'), ':.')  : '[No Name]'
   let modified = &modified ? ' +' : ''
   return filename . modified
 endfunction
@@ -46,24 +46,28 @@ let g:lightline = {
       \ },
       \ }
 
-	call denite#custom#map(
-	      \ 'insert',
-	      \ '<Down>',
-	      \ '<denite:move_to_next_line>',
-	      \ 'noremap'
-	      \)
-	call denite#custom#map(
-	      \ 'insert',
-	      \ '<Up>',
-	      \ '<denite:move_to_previous_line>',
-	      \ 'noremap'
-	      \)
+if exists('*denite#custom#map')
+  call denite#custom#map(
+        \ 'insert',
+        \ '<Down>',
+        \ '<denite:move_to_next_line>',
+        \ 'noremap'
+        \)
+  call denite#custom#map(
+        \ 'insert',
+        \ '<Up>',
+        \ '<denite:move_to_previous_line>',
+        \ 'noremap'
+        \)
+endif
 
 augroup statuslinegroup
   autocmd!
   autocmd User CocDiagnosticChange call lightline#update()
 augroup END
 
-call lightline#init()
-call lightline#colorscheme()
-call lightline#update()
+if exists("*lightline#init")
+  call lightline#init()
+  call lightline#colorscheme()
+  call lightline#update()
+endif

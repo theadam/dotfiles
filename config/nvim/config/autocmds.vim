@@ -5,6 +5,7 @@ augroup generalgroup
 
   " make python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
   autocmd FileType python setlocal sw=4 sts=4 et
+  autocmd FileType go setlocal sw=2 noexpandtab
 
   autocmd BufWritePost $MYVIMRC nested source % | echom "Reloaded " . $MYVIMRC | redraw
   autocmd BufWritePost ~/.config/nvim/config/*.vim nested source $MYVIMRC | echom "Reloaded " . $MYVIMRC | redraw

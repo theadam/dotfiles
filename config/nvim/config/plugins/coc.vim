@@ -1,16 +1,22 @@
 call coc#add_extension(
             \ 'coc-tsserver',
+            \ 'coc-tslint-plugin',
+            \ 'coc-go',
             \ 'coc-eslint',
             \ 'coc-highlight',
             \ 'coc-json',
             \ 'coc-pyls',
             \ 'coc-solargraph',
-            \ 'coc-ultisnips',
             \ 'coc-html',
-            \ 'coc-css'
+            \ 'coc-css',
+            \ 'coc-prettier'
             \ )
 
+"            \ 'coc-ultisnips',
 " autocmds
+"
+let g:coc_node_path = "/Users/theadam/.nvm/versions/node/v14.2.0/bin/node"
+
 augroup cocgroup
   autocmd!
   " Setup formatexpr specified filetype(s).
@@ -30,7 +36,7 @@ augroup end
 " Turn off endwise mappings to override with custom mappings
 let g:endwise_no_mappings = 1
 imap <C-X><CR>   <CR><Plug>AlwaysEnd
-imap <expr> <CR> (pumvisible() ? "\<C-Y>" : "\<CR>\<Plug>DiscretionaryEnd")
+imap <expr> <CR> (pumvisible() ? "\<C-Y>" : "\<CR>")
 imap <expr> <C-N> (pumvisible() ? "\<C-N>" : coc#refresh())
 imap <expr> <C-P> (pumvisible() ? "\<C-P>" : coc#refresh())
 
@@ -50,6 +56,7 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
@@ -84,3 +91,6 @@ nnoremap <silent> <leader><s-w>  :<C-u>Denite coc-workspace -winheight=7<cr>
 nnoremap <silent> <leader><s-d>  :<C-u>Denite coc-diagnostic -winheight=7<cr>
 " Show available commands
 nnoremap <silent> <leader><s-c>  :<C-u>Denite coc-command -winheight=7<cr>
+
+hi clear CocHighlightText
+hi link CocHighlightText Visual

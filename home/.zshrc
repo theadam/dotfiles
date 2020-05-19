@@ -5,6 +5,8 @@ _has() {
 
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/Library/Android/sdk:$PATH
+export PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
 
 source ~/.zsh_profile
 
@@ -112,3 +114,13 @@ if _has fzf && _has ag; then
   '
 fi
 
+
+[[ -s "/Users/theadam/.gvm/scripts/gvm" ]] && source "/Users/theadam/.gvm/scripts/gvm"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/theadam/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/theadam/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/theadam/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/theadam/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+export CLOUDSDK_PYTHON=`which python`
