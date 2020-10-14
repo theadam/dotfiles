@@ -124,3 +124,4 @@ if [ -f '/Users/theadam/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Use
 if [ -f '/Users/theadam/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/theadam/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 export CLOUDSDK_PYTHON=`which python`
+eval "$(pyenv init -)"

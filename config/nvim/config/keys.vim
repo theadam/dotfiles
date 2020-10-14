@@ -23,6 +23,6 @@ vnoremap <leader>x <c-x>
 map <leader>w :set wrap!<cr>
 
 " show location window
-nnoremap <silent> <leader>l  :lwindow 7<CR>
+nnoremap <silent> <leader>l  :CocList diagnostics<CR>
 
 nnoremap <leader>vs :e ~/.config/nvim/config/<CR>

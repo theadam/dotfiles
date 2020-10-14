@@ -1,20 +1,3 @@
-call coc#add_extension(
-            \ 'coc-tsserver',
-            \ 'coc-tslint-plugin',
-            \ 'coc-go',
-            \ 'coc-eslint',
-            \ 'coc-highlight',
-            \ 'coc-json',
-            \ 'coc-pyls',
-            \ 'coc-solargraph',
-            \ 'coc-html',
-            \ 'coc-css',
-            \ 'coc-prettier'
-            \ )
-
-"            \ 'coc-ultisnips',
-" autocmds
-"
 let g:coc_node_path = "/Users/theadam/.nvm/versions/node/v14.2.0/bin/node"
 
 augroup cocgroup
@@ -94,3 +77,11 @@ nnoremap <silent> <leader><s-c>  :<C-u>Denite coc-command -winheight=7<cr>
 
 hi clear CocHighlightText
 hi link CocHighlightText Visual
+
+
+
+" Run jest for current file
+nnoremap <leader>tf :call CocAction('runCommand', 'jest.fileTest', ['%'])<CR>
+
+" Run jest for current test
+nnoremap <leader>te :call CocAction('runCommand', 'jest.singleTest')<CR>

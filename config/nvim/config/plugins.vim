@@ -6,7 +6,7 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'Shougo/denite.nvim'
 Plug 'itchyny/lightline.vim'
 
@@ -61,5 +61,26 @@ Plug 'ianks/vim-tsx'
 " Plug 'tpope/vim-git'
 " Plug 'keith/tmux.vim'
 " Plug 'honza/dockerfile.vim'
+Plug 'elixir-editors/vim-elixir'
+Plug 'udalov/kotlin-vim'
+Plug 'derekwyatt/vim-scala'
+
+"
+" COC EXTENSIONS:
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
+Plug 'josa42/coc-go', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-jest', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-pyls', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-solargraph', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-tslint-plugin', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install --frozen-lockfile'}
+Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
 
 call plug#end()

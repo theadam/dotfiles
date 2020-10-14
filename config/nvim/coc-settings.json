@@ -5,14 +5,22 @@
        "command": "purescript-language-server",
        "args": ["--stdio"],
        "filetypes": ["purescript"]
+     },
+     "kotlin": {
+         "command": "/Users/theadam/Documents/workspace/kotlin-language-server/server/build/install/server/bin/kotlin-language-server",
+         "filetypes": ["kotlin"],
+         "rootPatterns": [".kt",".kts"],
+         "additionalSchemes": ["jar", "zipfile"]
      }
   },
   "coc.preferences.formatOnSaveFiletypes": ["javascript", "javascriptreact", "purescript", "typescript", "typescriptreact"],
   "solargraph.useBundler": true,
   "javascript.validate.enable" : false,
+  "typescript.suggest.completeFunctionCalls": false,
   "pyls.plugins.pycodestyle.enabled": false,
   "pyls.plugins.pyflakes.enabled": true,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "all",
-  "eslint.enable": false
+  "eslint.enable": false,
+  "jest.customFlags": ["--coverage=false"]
 }
