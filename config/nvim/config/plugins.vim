@@ -13,7 +13,7 @@ Plug 'itchyny/lightline.vim'
 " Color scheme
 Plug 'tyrannicaltoucan/vim-quantum'
 
-" Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-abolish'
 " Plug 'editorconfig/editorconfig-vim'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
@@ -32,6 +32,7 @@ Plug 'justinmk/vim-dirvish'
 " " JS
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 " Plug 'moll/vim-node'
 " Plug 'sheerun/vim-json'
 " Plug 'mvolkmann/vim-react'
@@ -81,6 +82,7 @@ Plug 'neoclide/coc-solargraph', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tslint-plugin', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'elixir-lsp/coc-elixir', {'do': 'yarn install --frozen-lockfile'}
-Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+" Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
 
 call plug#end()

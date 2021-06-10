@@ -12,12 +12,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 . $(brew --prefix nvm)/nvm.sh
 
-alias mux='tmuxinator'
-alias ls='ls -G'
-alias psql='docker exec -it postgres psql -U postgres'
-alias redis-cli='docker exec -it redis redis-cli'
-alias vim='nvim'
-
 export EDITOR=nvim
 export JAVA_HOME="$(/usr/libexec/java_home -v 1.8 2> /dev/null)"
 export WORKON_HOME=$HOME/.virtualenvs

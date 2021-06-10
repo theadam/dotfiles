@@ -125,3 +125,7 @@ if [ -f '/Users/theadam/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then .
 
 export CLOUDSDK_PYTHON=`which python`
 eval "$(pyenv init -)"
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
