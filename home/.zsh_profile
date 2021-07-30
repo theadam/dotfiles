@@ -7,6 +7,8 @@ export PATH=~/bin:$PATH
 export PATH=./node_modules/.bin:$PATH
 # add rust stuff to PATH
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$PATH:/Users/theadam/Library/Application Support/Coursier/bin"
+export PATH="$PATH:/Users/theadam/.gem/ruby/2.6.0/bin"
 
 # Setup nvm
 export NVM_DIR="$HOME/.nvm"
