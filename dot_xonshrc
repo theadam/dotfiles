@@ -1,0 +1,41 @@
+from xonsh.xontribs import xontribs_load
+
+# Base Env
+#
+$PATH += ['~/.goenv/bin', './node_modules/.bin', '~/.local/bin', '/usr/local/bin']
+$WORKON_HOME="~/.virtualenvs"
+$JAVA_8_HOME=$(/usr/libexec/java_home -v1.8 2> /dev/null)
+$JAVA_11_HOME=$(/usr/libexec/java_home -v11 2> /dev/null)
+$JAVA_16_HOME=$(/usr/libexec/java_home -v16 2> /dev/null)
+
+
+xontribs_load([
+  'vox', 
+#  'autovox', 
+  'vox_api', 
+  'fish_completer',
+  'pyenv',
+  'nodenv',
+  'z',
+  'goenv',
+  'rbenv',
+])
+#
+# Setup Aliases
+#
+aliases['vim'] = 'lvim'
+aliases['vimdiff'] = 'lvim -d'
+aliases['tmux-here'] = 'tmux new-session -s @( $(basename $(pwd)).strip() )' 
+aliases['kafka-consumer-groups'] = '/Users/theadam/Documents/workspace/kafka-topics/bin/kafka-consumer-groups.sh'
+aliases['kafka-topics'] = '/Users/theadam/Documents/workspace/data-producer/bin/kafka-topics.sh'
+aliases['kcat'] = '/Users/theadam/Documents/workspace/kafka-topics/bin/kcat.sh'
+aliases['java8']= '$JAVA_HOME=$JAVA_8_HOME'
+aliases['java11']= '$JAVA_HOME=$JAVA_11_HOME'
+aliases['java16'] = '$JAVA_HOME=$JAVA_16_HOME'
+
+$EDITOR='lvim'
+
+for file in g`~/.config/xonsh/*`:
+  source @(file)
+
+
