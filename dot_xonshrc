@@ -2,7 +2,7 @@ from xonsh.xontribs import xontribs_load
 
 # Base Env
 #
-$PATH += ['~/.goenv/bin', './node_modules/.bin', '~/.local/bin', '/usr/local/bin']
+# PATH is set in WezTerm
 $WORKON_HOME="~/.virtualenvs"
 $JAVA_8_HOME=$(/usr/libexec/java_home -v1.8 2> /dev/null)
 $JAVA_11_HOME=$(/usr/libexec/java_home -v11 2> /dev/null)
@@ -19,6 +19,7 @@ xontribs_load([
   'z',
   'goenv',
   'rbenv',
+  'term_integration'
 ])
 #
 # Setup Aliases

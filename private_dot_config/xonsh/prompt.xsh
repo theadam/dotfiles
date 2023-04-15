@@ -31,7 +31,7 @@ $PROMPT_FIELDS['env_postfix'] = ''
 $PROMPT_FIELDS['return_color'] = _return_color
 $PROMPT_FIELDS['lastcommandtime'] = _lastcommandtime
 $PROMPT = """
-{BLUE}{cwd_dir}{BOLD_CYAN}{cwd_base}{branch_color}{curr_branch: {}}{RESET} {RED}{last_return_code_if_nonzero:[{BOLD_INTENSE_RED}{}{RED}] }{RESET}{#444444}{fill} {#81815b}{lastcommandtime}{RESET}
+{BLUE}{cwd_dir}{CYAN}{cwd_base}{branch_color}{curr_branch: {}}{RESET} {RED}{last_return_code_if_nonzero:[{BOLD_INTENSE_RED}{}{RED}] }{RESET}{#444444}{fill} {#81815b}{lastcommandtime}{RESET}
 {return_color}❯{RESET} """
 
 transient_prompt = '{return_color}❯{RESET} '

@@ -205,18 +205,19 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- Additional Plugins
 vim.g.ai_no_mappings = true
 lvim.plugins = {
+  { 
+    "norcalli/nvim-colorizer.lua",
+    config = function() 
+      require'colorizer'.setup()
+    end
+  },
   { "RRethy/nvim-base16" },
+  { "mhartington/oceanic-next" },
   {
     "JoosepAlviste/palenightfall.nvim",
-    "mhartington/oceanic-next",
     config = function()
       require('palenightfall').setup({
         transparent = false,
-        color_overrides = {
-          background = '#292d3e',
-          background_darker = '#252837',
-          statusline = '#232534',
-        },
       })
     end
   },
