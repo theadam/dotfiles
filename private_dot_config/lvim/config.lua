@@ -21,18 +21,7 @@ lvim.log.level = "warn"
 lvim.format_on_save = false
 vim.opt.background = "dark"
 
-local theme = os.getenv("THEME")
-if theme ~= nil then
-  if theme == "base16-oceanicnext" then
-    lvim.colorscheme = "OceanicNext"
-  elseif theme == "base16-material-palenight" then
-    lvim.colorscheme = "palenightfall"
-  else
-    lvim.colorscheme = "palenightfall"
-  end
-else
-  lvim.colorscheme = "palenightfall"
-end
+lvim.colorscheme = "palenightfall"
 
 vim.opt.inccommand = "nosplit"
 -- to disable icons and use a minimalist setup, uncomment the following
@@ -205,6 +194,7 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- Additional Plugins
 vim.g.ai_no_mappings = true
 lvim.plugins = {
+  { 'axelf4/vim-strip-trailing-whitespace' },
   { 
     "norcalli/nvim-colorizer.lua",
     config = function() 
@@ -234,7 +224,7 @@ lvim.plugins = {
     --  vim.o.timeoutlen = 500
     -- end
   },
-  {
+ {
     "ray-x/lsp_signature.nvim",
     event = "BufRead",
     config = function() require "lsp_signature".on_attach() end,

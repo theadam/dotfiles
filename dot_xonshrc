@@ -4,9 +4,9 @@ from xonsh.xontribs import xontribs_load
 #
 # PATH is set in WezTerm
 $WORKON_HOME="~/.virtualenvs"
-$JAVA_8_HOME=$(/usr/libexec/java_home -v1.8 2> /dev/null)
-$JAVA_11_HOME=$(/usr/libexec/java_home -v11 2> /dev/null)
-$JAVA_16_HOME=$(/usr/libexec/java_home -v16 2> /dev/null)
+$JAVA_8_HOME=$(/usr/libexec/java_home -v1.8 2> /dev/null).strip()
+$JAVA_11_HOME=$(/usr/libexec/java_home -v11 2> /dev/null).strip()
+$JAVA_16_HOME=$(/usr/libexec/java_home -v16 2> /dev/null).strip()
 
 
 xontribs_load([
@@ -33,6 +33,9 @@ aliases['kcat'] = '/Users/theadam/Documents/workspace/kafka-topics/bin/kcat.sh'
 aliases['java8']= '$JAVA_HOME=$JAVA_8_HOME'
 aliases['java11']= '$JAVA_HOME=$JAVA_11_HOME'
 aliases['java16'] = '$JAVA_HOME=$JAVA_16_HOME'
+aliases['wezrocks'] = 'luarocks --tree ~/.config/wezterm/modules'
+
+java11
 
 $EDITOR='lvim'
 

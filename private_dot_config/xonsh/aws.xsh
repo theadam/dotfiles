@@ -71,15 +71,3 @@ class ECSWrapper(wrapt.ObjectProxy):
     def cluster(self, cluster):
         return Cluster(cluster, self)
 
-
-class KBS(object):
-    @property
-    def _session(self):
-        return boto3.session.Session(profile_name='kbs-iam')
-      
-    @property
-    def ecs(self):
-        return ECSWrapper(self._session.client('ecs'))
-        
-kbs = KBS()
-
