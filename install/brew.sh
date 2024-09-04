@@ -4,68 +4,55 @@ brew tap Homebrew/cask-versions
 
 echo 'Installing necessary applications'
 FORMULAS=(
-    'coreutils'
-    'rbenv'
-    'nvm'
-    'bash-completion'
-    'boost'
-    'tmux'
-    'tmuxinator-completion'
-    'reattach-to-user-namespace'
-    'ag'
-    'fzf'
-    'pyenv'
-    'pyenv-virtualenv'
-    'neovim'
-    'stow'
-    'zsh'
+  'coreutils'
+  'rbenv'
+  'fish'
+  'nvm'
+  'boost'
+  'ag'
+  'fzf'
+  'pyenv'
+  'pyenv-virtualenv'
+  'neovim'
+  'stow'
 )
 
 for f in "${FORMULAS[@]}"; do
-    if ! brew ls --versions $f > /dev/null; then
-        brew install $f
+  if ! brew ls --versions $f >/dev/null; then
+    brew install $f
+  else
+    # When outdated `brew outdated` returns an error code
+    if ! brew outdated $f >/dev/null; then
+      brew upgrade $f
     else
-        # When outdated `brew outdated` returns an error code
-        if ! brew outdated $f > /dev/null; then
-            brew upgrade $f
-        else
-            echo "$f already latest version"
-        fi
+      echo "$f already latest version"
     fi
+  fi
 done
 
 CASKS=(
-    'bettertouchtool'
-    'docker'
-    'slack'
-    'licecap'
-    'google-chrome'
-    'karabiner-elements'
-    'kitty'
-    '1password'
-    'insomnia'
+  'bettertouchtool'
+  'docker'
+  'slack'
+  'licecap'
+  'google-chrome'
+  'karabiner-elements'
+  '1password'
+  'wezterm'
 )
 
 for f in "${CASKS[@]}"; do
-    if ! brew cask ls --versions $f > /dev/null; then
-        brew cask install $f
+  if ! brew ls --cask --versions $f >/dev/null; then
+    brew install --cask $f
+  else
+    # When outdated `brew outdated` returns an error code
+    if ! brew outdated --cask $f >/dev/null; then
+      brew upgrade --cask $f
     else
-        # When outdated `brew outdated` returns an error code
-        if ! brew cask outdated $f > /dev/null; then
-            brew cask upgrade $f
-        else
-            echo "$f already latest version"
-        fi
+      echo "$f already latest version"
     fi
+  fi
 done
 
 # echo 'Starting docker'
 # open /Applications/Docker.app
-
-if [ ! -d ~/.oh-my-zsh ]; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-    # Remove zshrc installed by oh-my-zsh
-    rm ~/.zshrc
-else
-    echo "Skipping installation of oh-my-zsh (directorty exists)"
-fi

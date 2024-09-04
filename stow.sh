@@ -2,17 +2,13 @@
 
 set -e
 
-stow home -t $HOME
+pushd stow
 
-pushd config
-
-for d in *
-do
-    TARGET=$HOME/.config/$d
-    echo "Stowing config/"$d" to "$TARGET
-    mkdir -p $TARGET
-    stow $d -t $TARGET
+for d in *; do
+  TARGET=$HOME
+  echo "Stowing stow/"$d" to "$TARGET
+  mkdir -p $TARGET
+  stow $d -t $TARGET
 done
 
 popd
-
