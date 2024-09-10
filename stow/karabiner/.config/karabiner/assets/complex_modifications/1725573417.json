@@ -1,17 +1,15 @@
 {
-  "title": "Change caps_lock to dual keys, escape and left_control.",
+  "title": "Caps→Ctrl/Esc if alone",
+  "maintainers": ["mngyuan"],
   "rules": [
     {
-      "description": "Change caps_lock to left_control if pressed with other keys, change caps_lock to escape if pressed alone.",
+      "description": "Caps→Esc/Ctrl if held",
       "manipulators": [
         {
-          "type": "basic",
           "from": {
             "key_code": "caps_lock",
             "modifiers": {
-              "optional": [
-                "any"
-              ]
+              "optional": ["any"]
             }
           },
           "to": [
@@ -23,7 +21,8 @@
             {
               "key_code": "escape"
             }
-          ]
+          ],
+          "type": "basic"
         }
       ]
     }

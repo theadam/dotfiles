@@ -31,10 +31,10 @@ for f in "${FORMULAS[@]}"; do
 done
 
 CASKS=(
+  'dbeaver-community'
   'bettertouchtool'
   'docker'
   'slack'
-  'licecap'
   'google-chrome'
   'karabiner-elements'
   '1password'

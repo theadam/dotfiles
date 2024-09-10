@@ -15,6 +15,7 @@ set -gx EDITOR nvim
 
 fish_add_path (pyenv root)/shims
 fish_add_path (nodenv root)/shims
+fish_add_path /usr/local/sbin
 
 set -gx JAVA_HOME $JAVA_11_HOME
 
@@ -29,3 +30,5 @@ end
 function java16
     set -gx JAVA_HOME $JAVA_16_HOME
 end
+
+fzf --fish | source
