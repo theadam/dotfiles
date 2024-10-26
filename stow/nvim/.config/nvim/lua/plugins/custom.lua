@@ -15,23 +15,11 @@ return {
     -- Optional dependencies
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
-  {
-    "folke/tokyonight.nvim",
-    lazy = true,
-    opts = { style = "storm" },
-  },
-  {
-    "JoosepAlviste/palenightfall.nvim",
-    config = function()
-      require("palenightfall").setup({
-        transparent = false,
-      })
-    end,
-  },
+  { "EdenEast/nightfox.nvim" },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "palenightfall",
+      colorscheme = "nightfox",
     },
   },
   {
@@ -45,7 +33,8 @@ return {
           settings = {
             python = {
               analysis = {
-                reportAny = "none",
+                diagnosticMode = "openFilesOnly",
+                useLibraryCodeForTypes = false,
               },
             },
           },
@@ -54,4 +43,15 @@ return {
     },
   },
   { "tpope/vim-surround" },
+  {
+    "nvim-telescope/telescope.nvim",
+    -- change some options
+    opts = {
+      defaults = {
+        get_selection_window = function()
+          return vim.api.nvim_get_current_win()
+        end,
+      },
+    },
+  },
 }

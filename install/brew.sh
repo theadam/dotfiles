@@ -15,6 +15,7 @@ FORMULAS=(
   'pyenv-virtualenv'
   'neovim'
   'stow'
+  'eza'
 )
 
 for f in "${FORMULAS[@]}"; do

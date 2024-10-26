@@ -3,3 +3,4 @@
 -- Add any additional options here
 vim.opt.clipboard = "" -- Sync with system clipboard
 vim.opt.relativenumber = false
+vim.g.lazyvim_picker = "auto"

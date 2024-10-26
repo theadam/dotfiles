@@ -12,8 +12,8 @@ config.front_end = "WebGpu"
 config.set_environment_variables = utils.BASE_ENV
 config.default_workspace = utils.default_workspace
 
-config.font = wezterm.font("MesloLGM Nerd Font", { weight = "Regular" })
-config.font_size = 12
+config.font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Book" })
+config.font_size = 12.5
 
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 
