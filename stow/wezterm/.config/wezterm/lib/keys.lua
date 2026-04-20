@@ -267,7 +267,7 @@ return {
 					-- Build choices with tree hierarchy
 					local choices = {}
 
-					local function add_children(parent_name, prefix)
+					local function add_children(parent_name, prefix, root_tag)
 						local kids = children_of[parent_name]
 						if not kids then return end
 						for i, child in ipairs(kids) do
@@ -275,11 +275,14 @@ return {
 							local connector = is_last and "└── " or "├── "
 							local next_prefix = prefix .. (is_last and "    " or "│   ")
 							local label = prefix .. connector .. utils.basename(child)
+							if root_tag then
+								label = label .. "  [" .. root_tag .. "]"
+							end
 							if child == active then
 								label = label .. " ●"
 							end
 							choices[#choices + 1] = { label = label, id = child }
-							add_children(child, next_prefix)
+							add_children(child, next_prefix, root_tag)
 						end
 					end
 
@@ -291,12 +294,13 @@ return {
 							end
 							choices[#choices + 1] = { label = label, id = config.default_workspace }
 						elseif worktree_roots[name] then
-							local label = utils.basename(name)
+							local root_base = utils.basename(name)
+							local label = root_base
 							if worktree_master[name] == active then
 								label = "● " .. label
 							end
 							choices[#choices + 1] = { label = label, id = name }
-							add_children(name, "  ")
+							add_children(name, "  ", root_base)
 						else
 							local label = utils.basename(name) .. " (" .. name .. ")"
 							if name == active then
