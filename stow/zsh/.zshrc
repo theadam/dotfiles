@@ -1,3 +1,7 @@
+# ---- locale (must be UTF-8 or prompt width-counting breaks with unicode glyphs) ----
+export LANG=C.utf8
+export LC_CTYPE=C.utf8
+
 # ---- PATH / env bootstrap ----
 for brew_bin in /opt/homebrew/bin/brew /usr/local/bin/brew /home/linuxbrew/.linuxbrew/bin/brew; do
   if [ -x "$brew_bin" ]; then
