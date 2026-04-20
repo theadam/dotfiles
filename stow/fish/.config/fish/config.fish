@@ -1,3 +1,11 @@
+if test -x /home/linuxbrew/.linuxbrew/bin/brew
+    /home/linuxbrew/.linuxbrew/bin/brew shellenv fish | source
+end
+
+if type -q fnm
+    fnm env --use-on-cd --shell fish | source
+end
+
 alias vim="nvim"
 alias ls="eza"
 

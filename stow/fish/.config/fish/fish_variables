@@ -5,4 +5,4 @@ SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fish
 SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ereitzig/sdkman\x2dfor\x2dfish\x40v2\x2e0\x2e0
 SETUVAR _fisher_reitzig_2F_sdkman_2D_for_2D_fish_40_v2_2E_30_2E_30__files:\x7e/\x2econfig/fish/functions/sdk\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/sdk\x2efish\x1e\x7e/\x2econfig/fish/completions/sdk\x2efish
 SETUVAR _fisher_upgraded_to_4_4:\x1d
-SETUVAR fish_user_paths:/Applications/WezTerm\x2eapp/Contents/MacOS\x1e/Users/theadam/\x2elocal/bin
+SETUVAR fish_user_paths:/home/theadam/\x2elocal/bin\x1e/Applications/WezTerm\x2eapp/Contents/MacOS\x1e/Users/theadam/\x2elocal/bin
