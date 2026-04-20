@@ -1,0 +1,35 @@
+# Syntax highlighting colors mirrored from fish (Ayu Dark palette).
+# Requires a true-color terminal.
+# Must be sourced BEFORE zsh-syntax-highlighting.
+typeset -gA ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[default]='fg=#CBCCC6'
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#FF3333,bold'
+ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=#5CCFE6'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=#5CCFE6'
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=#5CCFE6'
+ZSH_HIGHLIGHT_STYLES[function]='fg=#5CCFE6'
+ZSH_HIGHLIGHT_STYLES[command]='fg=#5CCFE6'
+ZSH_HIGHLIGHT_STYLES[arg0]='fg=#5CCFE6'
+ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=#5CCFE6'
+ZSH_HIGHLIGHT_STYLES[precommand]='fg=#5CCFE6,underline'
+ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=#F29E74'
+ZSH_HIGHLIGHT_STYLES[path]='fg=#73D0FF,underline'
+ZSH_HIGHLIGHT_STYLES[path_pathseparator]='fg=#73D0FF,underline'
+ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=#73D0FF,underline'
+ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]='fg=#73D0FF,underline'
+ZSH_HIGHLIGHT_STYLES[globbing]='fg=#FFCC66'
+ZSH_HIGHLIGHT_STYLES[history-expansion]='fg=#FFCC66'
+ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=#CBCCC6'
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=#CBCCC6'
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=#BAE67E'
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=#BAE67E'
+ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=#BAE67E'
+ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=#95E6CB'
+ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]='fg=#95E6CB'
+ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='fg=#CBCCC6'
+ZSH_HIGHLIGHT_STYLES[assign]='fg=#CBCCC6'
+ZSH_HIGHLIGHT_STYLES[redirection]='fg=#D4BFFF'
+ZSH_HIGHLIGHT_STYLES[comment]='fg=#5C6773'
+
+# Fish-matched autosuggestion color
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#707A8C'

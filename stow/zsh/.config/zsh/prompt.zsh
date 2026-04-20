@@ -8,11 +8,9 @@
 #   ●N  staged      — yellow
 #   ✗N  invalid     (merge conflicts) — red
 #   ⚑   stash present — default color
-#   ↑N  ahead of upstream
-#   ↓N  behind upstream
-#   =   even with upstream
-#   (untracked files intentionally not shown — matches fish's
-#    __fish_git_prompt_hide_untrackedfiles=1)
+#   (untracked files and upstream ahead/behind intentionally not shown —
+#    matches fish's __fish_git_prompt_hide_untrackedfiles=1 and the
+#    user's disabled showupstream)
 
 autoload -Uz add-zsh-hook
 
@@ -36,21 +34,6 @@ function __zp_git_counts() {
 # True (0) if any stash exists.
 function __zp_has_stash() {
   git rev-parse --verify --quiet refs/stash >/dev/null 2>&1
-}
-
-# Echo upstream indicator: "↑N", "↓N", "↑N↓N", "=", or nothing if no upstream.
-function __zp_upstream() {
-  local pair behind ahead
-  pair=$(git rev-list --left-right --count '@{upstream}...HEAD' 2>/dev/null) || return
-  behind=${pair%%	*}
-  ahead=${pair##*	}
-  if (( ahead == 0 && behind == 0 )); then
-    print -n -- "="; return
-  fi
-  local out=""
-  (( ahead  > 0 )) && out+="↑${ahead}"
-  (( behind > 0 )) && out+="↓${behind}"
-  print -n -- "$out"
 }
 
 function __zp_render() {
@@ -111,10 +94,7 @@ function __zp_render() {
   fi
   status_str=${status_str% }
 
-  local up
-  up=$(__zp_upstream)
   local branch_part="%B%F{magenta}${branch}%f%b"
-  [[ -n "$up" ]] && branch_part+=" ${up}"
 
   local wt_prefix=""
   if (( is_worktree )); then
