@@ -23,3 +23,29 @@ User request: $*"
 
   print -z -- "$cmd"
 }
+
+# awsp — run a command under an AWS profile, logging in first if needed
+awsp() {
+  if [ $# -lt 2 ]; then
+    echo "Usage: awsp <profile> <command> [args...]" >&2
+    return 1
+  fi
+
+  local profile="$1"
+  shift
+
+  if ! aws sts get-caller-identity --profile "$profile" >/dev/null 2>&1; then
+    echo "Not logged in to AWS profile '$profile'. Logging in..."
+    aws login --profile "$profile"
+
+    if ! aws sts get-caller-identity --profile "$profile" >/dev/null 2>&1; then
+      echo "AWS login failed for profile '$profile'" >&2
+      return 1
+    fi
+  fi
+
+  local -a env_args
+  env_args=("${(@f)$(aws configure export-credentials --profile "$profile" --format env-no-export)}")
+
+  env "${env_args[@]}" "$@"
+}
