@@ -7,7 +7,6 @@
 #   ✚N  dirty       (modified or deleted, unstaged) — blue
 #   ●N  staged      — yellow
 #   ✗N  invalid     (merge conflicts) — red
-#   ⚑   stash present — default color
 #   (untracked files and upstream ahead/behind intentionally not shown —
 #    matches fish's __fish_git_prompt_hide_untrackedfiles=1 and the
 #    user's disabled showupstream)
@@ -29,11 +28,6 @@ function __zp_git_counts() {
     [[ $x != ' ' && $x != '?' ]] && (( __ZP_STAGED++ ))
     [[ $y != ' ' && $y != '?' ]] && (( __ZP_DIRTY++ ))
   done < <(git status --porcelain 2>/dev/null)
-}
-
-# True (0) if any stash exists.
-function __zp_has_stash() {
-  git rev-parse --verify --quiet refs/stash >/dev/null 2>&1
 }
 
 function __zp_render() {
@@ -70,8 +64,6 @@ function __zp_render() {
     || branch="?"
 
   __zp_git_counts
-  local has_stash=0
-  __zp_has_stash && has_stash=1
 
   local status_str=""
   local clean=1
@@ -84,13 +76,8 @@ function __zp_render() {
   if (( __ZP_CONFLICTED > 0 )); then
     status_str+="%F{red}✗${__ZP_CONFLICTED}%f "; clean=0
   fi
-  (( has_stash )) && status_str+="⚑ "
   if (( clean )); then
-    if (( has_stash )); then
-      status_str="%B%F{green}✔%f%b ⚑"
-    else
-      status_str="%B%F{green}✔%f%b"
-    fi
+    status_str="%B%F{green}✔%f%b"
   fi
   status_str=${status_str% }
 
