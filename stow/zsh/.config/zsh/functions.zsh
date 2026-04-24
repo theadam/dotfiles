@@ -47,5 +47,11 @@ awsp() {
   local -a env_args
   env_args=("${(@f)$(aws configure export-credentials --profile "$profile" --format env-no-export)}")
 
+  local region
+  region=$(aws configure get region --profile "$profile" 2>/dev/null)
+  if [[ -n "$region" ]]; then
+    env_args+=("AWS_DEFAULT_REGION=$region" "AWS_REGION=$region")
+  fi
+
   env "${env_args[@]}" "$@"
 }

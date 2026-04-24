@@ -1,6 +1,12 @@
 # ---- locale (must be UTF-8 or prompt width-counting breaks with unicode glyphs) ----
-export LANG=C.utf8
-export LC_CTYPE=C.utf8
+# macOS (BSD libc) has no C.UTF-8; Linux (glibc) does. Pick per-OS.
+if [[ "$OSTYPE" == darwin* ]]; then
+  export LANG=en_US.UTF-8
+  export LC_CTYPE=en_US.UTF-8
+else
+  export LANG=C.utf8
+  export LC_CTYPE=C.utf8
+fi
 
 # ---- PATH / env bootstrap ----
 for brew_bin in /opt/homebrew/bin/brew /usr/local/bin/brew /home/linuxbrew/.linuxbrew/bin/brew; do
@@ -53,3 +59,9 @@ alias ls="eza"
 
 # ---- user functions ----
 [ -f "$HOME/.config/zsh/functions.zsh" ] && source "$HOME/.config/zsh/functions.zsh"
+
+# ---- final PATH guarantee: homebrew wins (runs after fnm/sdkman/orbstack) ----
+if [ -n "$HOMEBREW_PREFIX" ]; then
+  path=("$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin" $path)
+fi
+hash -r
