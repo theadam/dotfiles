@@ -27,6 +27,9 @@ export WORKON_HOME="$HOME/.virtualenvs"
 # ---- grml-zsh-config: sensible defaults (keys, history, completion, options) ----
 [ -f "$HOME/.config/zsh/grml-zshrc" ] && source "$HOME/.config/zsh/grml-zshrc"
 
+# ---- word boundaries: stop word-motion (option+arrows, option+backspace) at - and . ----
+WORDCHARS='*?_[]~=/&;!#$%^(){}<>'
+
 # ---- tool integrations ----
 if command -v fnm >/dev/null 2>&1; then
   eval "$(fnm env --use-on-cd --shell zsh)"
@@ -65,3 +68,6 @@ if [ -n "$HOMEBREW_PREFIX" ]; then
   path=("$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin" $path)
 fi
 hash -r
+
+# ---- machine-local overrides (not tracked in dotfiles) ----
+[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"
